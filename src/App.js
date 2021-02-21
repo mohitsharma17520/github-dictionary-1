@@ -7,7 +7,9 @@ import Search from './components/search/Search'
 import { Sun } from 'react-feather';
 import { Moon } from 'react-feather';
 
-
+/**
+ * Root Component which hold the Toggle logic and Search component
+ */
 function App() {
   const { theme, toggle, dark } = React.useContext(ThemeContext)
   return (

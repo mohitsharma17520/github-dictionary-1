@@ -3,41 +3,33 @@ import PropTypes from 'prop-types'
 import "./searchInputControl.scss";
 import { Search } from 'react-feather';
 import { Delete } from 'react-feather';
-const ENTER_KEYCODE = 13;
 
 /**
  * 
- * @param {*} props Component to allow users to enter search criteria and clear the search 
+ * @param {*} props Component used by user to search searchgithub usernames
  */
 const SearchInputControl = props => {
     const { searchTxt, setSearchTxt, defaultSearchTxt, placeholder } = props;
 
     return (
         <div>
-            <div className="SearchInputControl mt-3">
-
-                <Search alt="search-icon" aria-hidden={true} class="search-icon" />
-
+            <div className="SearchInputControl">
+                <Search alt="search-icon" aria-hidden={true} className="search-icon" />
                 <input
-                    className='inputBox'
+                    className='searchInputBox'
                     placeholder={placeholder}
                     aria-label="Type Username to Search"
                     type="text"
                     tabIndex={1}
                     value={searchTxt}
-                    onChange={evt => setSearchTxt(evt.target.value)}
+                    onChange={e => setSearchTxt(e.target.value)}
                 />
-
                 <Delete
                     alt="clear-button"
-                    class="delete-icon"
+                    className="delete-icon"
                     onClick={() => setSearchTxt(defaultSearchTxt)}
                 />
-
-
             </div>
-
-
         </div>
     )
 }
@@ -49,7 +41,7 @@ SearchInputControl.propTypes = {
     setSearchTxt: PropTypes.func,
     //default text to fetch the results from Github, without user input
     defaultSearchTxt: PropTypes.string,
-    //Message to be displayed inside searchbar
+    //placeholder to display inside searchbar
     placeholder: PropTypes.string.isRequired,
 }
 

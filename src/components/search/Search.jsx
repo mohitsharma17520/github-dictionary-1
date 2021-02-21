@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Header from "../header/Header";
 import SearchInputControl from './searchInputControl/SearchInputControl';
+import SearchResult from "../searchResult/SearchResult";
 
 const DEFAULT_SEARCH_TEXT = '';
 const Search = () => {
-
     const [searchTxt, setSearchTxt] = useState(DEFAULT_SEARCH_TEXT);
-
     return (
         <div className="searchPage">
 
@@ -21,10 +20,9 @@ const Search = () => {
                 defaultSearchTxt={DEFAULT_SEARCH_TEXT}
                 placeholder={'GitHub Username'}
             />
+            { searchTxt && <SearchResult searchTxt={searchTxt} /> }
         </div>
-
     )
-
 }
 
 

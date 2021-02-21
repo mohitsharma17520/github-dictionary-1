@@ -1,12 +1,16 @@
 import React from 'react'
-import { themes } from '../constants/appConstant'
+import { THEMES } from '../constants/appConstant'
 const initialState = {
   dark: false,
-  theme: themes.light,
+  theme: THEMES.light,
   toggle: () => { }
 }
 const ThemeContext = React.createContext(initialState)
 
+/**
+ * 
+ * @param {*} props Component will be used to toggle between DARK and LIGHT Themes
+ */
 function ThemeProvider({ children }) {
   const [dark, setDark] = React.useState(false) // Default theme is light
 
@@ -24,7 +28,7 @@ function ThemeProvider({ children }) {
   }
 
   // Filter the styles based on the theme selected
-  const theme = dark ? themes.dark : themes.light
+  const theme = dark ? THEMES.dark : THEMES.light
 
   return (
     <ThemeContext.Provider value={{ theme, dark, toggle }}>
